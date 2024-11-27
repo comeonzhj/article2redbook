@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔记生成工具</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/preview.css">
+    <link rel="stylesheet" href="css/carousel.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#846EFF',
+                        secondary: '#4CAF50',
+                        warning: '#ff9800'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="lib/jszip.min.js"></script>
+    <script src="lib/html2canvas.min.js"></script>
+</head>
+<body class="bg-gray-50 p-5">
+    <div class="container mx-auto max-w-[1600px] h-[calc(100vh-2.5rem)] flex gap-5">
+        <!-- 左侧编辑区 -->
+        <div class="flex-1 min-w-[300px] max-w-[600px] flex flex-col gap-4 bg-white rounded-lg shadow-lg p-5">
+            <div class="flex gap-3">
+                <input type="text" id="linkInput" class="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="输入文章链接">
+                <button id="reconstructBtn" class="px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors">重构</button>
+            </div>
+            <div class="flex-1 flex flex-col gap-3">
+                <textarea id="jsonInput" class="flex-1 p-4 border border-gray-200 rounded-lg font-mono text-sm resize-none focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="粘贴 JSON 格式文本"></textarea>
+                <div class="flex gap-3">
+                    <button id="previewBtn" class="flex-1 px-4 py-2 bg-secondary hover:bg-secondary/90 text-white rounded-lg transition-colors">预览效果</button>
+                    <button id="downloadBtn" class="flex-1 px-4 py-2 bg-warning hover:bg-warning/90 text-white rounded-lg transition-colors">下载图片</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧预览区 -->
+        <div class="flex-1 flex gap-5 min-w-[600px]">
+            <!-- 左侧轮播图预览 -->
+            <div class="carousel-container h-full w-auto aspect-[3/4] relative bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="carousel-counter absolute top-4 right-4 bg-black/50 text-white px-2 py-1 rounded-full text-sm max-w-[4rem] text-center">1/1</div>
+                <div class="carousel-slides h-full" id="carouselSlides"></div>
+                <button class="carousel-btn prev absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-colors" id="prevBtn">&lt;</button>
+                <button class="carousel-btn next absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-colors" id="nextBtn">&gt;</button>
+            </div>
+            
+            <!-- 右侧笔记预览 -->
+            <div class="flex-1 max-w-[500px] bg-white rounded-lg shadow-lg p-6 flex flex-col gap-4 overflow-y-auto">
+                <div class="note-title copyable text-xl font-bold pb-3 border-b-2 border-gray-100"></div>
+                <div class="note-content copyable text-gray-700 leading-relaxed"></div>
+                <div class="note-tags copyable text-primary text-sm"></div>
+                <div class="note-comments mt-4">
+                    <div class="text-lg font-bold mb-3">评论模拟</div>
+                    <div id="commentsList" class="space-y-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚本引入 -->
+    <script src="lib/html2canvas.min.js"></script>
+    <script src="js/utils/parser.js"></script>
+    <script src="js/utils/renderer.js"></script>
+    <script src="js/utils/download.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/note.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/preview.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

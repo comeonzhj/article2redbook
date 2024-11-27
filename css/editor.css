@@ -1,0 +1,64 @@
+.editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.text-area-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#jsonInput {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 14px;
+    resize: none;
+    background-color: white;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.button-group button {
+    flex: 1;
+}
+
+#previewBtn {
+    background-color: #4CAF50;
+}
+
+#previewBtn:hover {
+    background-color: #45a049;
+}
+
+#downloadBtn {
+    background-color: #ff9800;
+}
+
+#downloadBtn:hover {
+    background-color: #f57c00;
+}
