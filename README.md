@@ -2,6 +2,7 @@
 使用 AI 总结文章，转成小红书图文的工具，可在线预览效果
 
 **感谢 Windsurf，整个项目我一个字符都没碰，全程嘴炮**
+需求提示词>>[how-to-prompt](How-to-prompt.md)
 
 老版本 —> [article2card](https://github.com/comeonzhj/article2card)
 
